@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Historical Analysis | The Ultimate Formula 1 Data Experience</title>
+    <link rel="icon" href="F1-logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Top Info Bar -->
+    <div class="top-bar">
+        <div class="top-bar-inner">
+            <span class="live-pip"></span>
+            <span>F1 2026 SEASON UNDERWAY</span>
+            <span class="tb-sep">|</span>
+            <span>77 SEASONS · 1,152 GRANDS PRIX · 818 DRIVERS</span>
+            <span class="tb-sep">|</span>
+            <span>DATA SOURCE: KAGGLE F1 DATASET</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="F1-logo.png" alt="F1 Logo" class="f1-logo-img-small">
+                <span>F1 ANALYTICS</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#stats">Stats</a></li>
+                <li><a href="#goat">GOAT</a></li>
+                <li><a href="#eras">Eras</a></li>
+                <li><a href="#recommendations">Recommendations</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Real F1 Image Slider -->
+    <section id="hero" class="hero">
+        <div class="hero-slider" id="heroSlider">
+            <!-- Slide 1: 2024 British GP - Hamilton -->
+            <div class="slide active">
+                <div class="slide-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/4e/2024_British_Grand_Prix%2C_Hamilton_%284%29.jpg')"></div>
+                <div class="slide-overlay"></div>
+                <div class="slide-meta">
+                    <span class="slide-loc"><i class="fas fa-map-marker-alt"></i> Silverstone, England</span>
+                    <span class="slide-event-name">2024 BRITISH GRAND PRIX</span>
+                </div>
+            </div>
+            <!-- Slide 2: 2024 British GP - Verstappen -->
+            <div class="slide">
+                <div class="slide-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/ad/2024_British_Grand_Prix%2C_Verstappen_%281%29.jpg')"></div>
+                <div class="slide-overlay"></div>
+                <div class="slide-meta">
+                    <span class="slide-loc"><i class="fas fa-map-marker-alt"></i> Silverstone, England</span>
+                    <span class="slide-event-name">2024 BRITISH GRAND PRIX</span>
+                </div>
+            </div>
+            <!-- Slide 3: 2024 British GP - Norris -->
+            <div class="slide">
+                <div class="slide-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/46/2024_British_Grand_Prix%2C_Norris_%281%29.jpg')"></div>
+                <div class="slide-overlay"></div>
+                <div class="slide-meta">
+                    <span class="slide-loc"><i class="fas fa-map-marker-alt"></i> Silverstone, England</span>
+                    <span class="slide-event-name">2024 BRITISH GRAND PRIX</span>
+                </div>
+            </div>
+            <!-- Slide 4: 2024 British GP - Russell -->
+            <div class="slide">
+                <div class="slide-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6d/2024_British_Grand_Prix%2C_Russell_%281%29.jpg')"></div>
+                <div class="slide-overlay"></div>
+                <div class="slide-meta">
+                    <span class="slide-loc"><i class="fas fa-map-marker-alt"></i> Silverstone, England</span>
+                    <span class="slide-event-name">2024 BRITISH GRAND PRIX</span>
+                </div>
+            </div>
+            <!-- Slide 5: 2024 British GP - Piastri -->
+            <div class="slide">
+                <div class="slide-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/f/f8/2024_British_Grand_Prix%2C_Piastri_%283%29.jpg')"></div>
+                <div class="slide-overlay"></div>
+                <div class="slide-meta">
+                    <span class="slide-loc"><i class="fas fa-map-marker-alt"></i> Silverstone, England</span>
+                    <span class="slide-event-name">2024 BRITISH GRAND PRIX</span>
+                </div>
+            </div>
+            <!-- Slide 6: 2025 Australian GP - Hamilton Ferrari -->
+            <div class="slide">
+                <div class="slide-img" style="background-image: url('https://www.racefans.net/wp-content/uploads/2025/03/racefansdotnet-24-03-15-11-21-59-4-M489455.jpg')"></div>
+                <div class="slide-overlay"></div>
+                <div class="slide-meta">
+                    <span class="slide-loc"><i class="fas fa-map-marker-alt"></i> Melbourne, Australia</span>
+                    <span class="slide-event-name">2025 AUSTRALIAN GRAND PRIX</span>
+                </div>
+            </div>
+            <!-- Slide 2026 FIA Concept Car -->
+            <div class="slide">
+                <div class="slide-img" style="background-image: url('https://www.racecar-engineering.com/wp-content/uploads/2024/06/2026_car_render_2_9.jpg')"></div>
+                <div class="slide-overlay"></div>
+                <div class="slide-meta">
+                    <span class="slide-loc"><i class="fas fa-map-marker-alt"></i> FIA Technical Centre</span>
+                    <span class="slide-event-name">2026 REGULATIONS CONCEPT</span>
+                </div>
+            </div>
+
+            <button class="slider-arrow prev-arrow" id="prevSlide" aria-label="Previous slide">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="slider-arrow next-arrow" id="nextSlide" aria-label="Next slide">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <div class="slider-indicators">
+                <span class="indicator active" data-slide="0"></span>
+                <span class="indicator" data-slide="1"></span>
+                <span class="indicator" data-slide="2"></span>
+                <span class="indicator" data-slide="3"></span>
+                <span class="indicator" data-slide="4"></span>
+                <span class="indicator" data-slide="5"></span>
+                <span class="indicator" data-slide="6"></span>
+            </div>
+
+            <div class="slide-counter">
+                <span id="currentSlideNum">01</span><span class="counter-sep"> / </span><span>07</span>
+            </div>
+
+            <div class="slider-progress-wrap">
+                <div class="slider-progress-bar" id="sliderProgress"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">1,152</span>
+                    <span class="stat-label">Grand Prix</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">818</span>
+                    <span class="stat-label">Drivers</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">205</span>
+                    <span class="stat-label">Constructors</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- Key Statistics Section -->
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">BY THE NUMBERS</span>
+                <h2 class="section-title">F1 in Numbers</h2>
+                <p class="section-desc">Key statistics from 77 seasons of Formula 1 racing</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-value">105</div>
+                    <div class="stat-name">Most Wins</div>
+                    <div class="stat-detail">Lewis Hamilton</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-flag-checkered"></i>
+                    </div>
+                    <div class="stat-value">243</div>
+                    <div class="stat-name">Constructor Wins</div>
+                    <div class="stat-detail">Scuderia Ferrari</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-value">818</div>
+                    <div class="stat-name">Unique Drivers</div>
+                    <div class="stat-detail">Since 1950</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="stat-value">77</div>
+                    <div class="stat-name">Seasons</div>
+                    <div class="stat-detail">1950 - 2026</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GOAT Section -->
+    <section id="goat" class="goat-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">GREATEST OF ALL TIME</span>
+                <h2 class="section-title">The GOAT Debate</h2>
+                <p class="section-desc">Based on composite scoring across wins, win rate, podiums, and career longevity</p>
+            </div>
+            <div class="goat-podium">
+                <div class="podium-item second">
+                    <div class="podium-rank">2</div>
+                    <div class="podium-driver">
+                        <div class="driver-avatar">
+                            <img src="https://images.cults3d.com/7_ThIXhzPctiXpcGP-5b5i3QTvE=/516x516/filters:no_upscale()/https://fbi.cults3d.com/uploaders/33034631/illustration-file/47127861-9f90-4d65-9aec-e88ff9400691/Schumacher-1.4.png" class="driver-img" alt="Michael Schumacher">
+                        </div>
+                        <div class="driver-info">
+                            <h3>Michael Schumacher</h3>
+                            <div class="driver-stats">
+                                <span class="wins">91 Wins</span>
+                                <span class="rate">30.3% Win Rate</span>
+                            </div>
+                            <div class="goat-score">88.3</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="podium-item first">
+                    <div class="podium-rank">1</div>
+                    <div class="podium-driver">
+                        <div class="driver-avatar champion">
+                            <img src="https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/ferrari/lewham01/2026ferrarilewham01right.webp" class="driver-img" alt="Lewis Hamilton">
+                        </div>
+                        <div class="driver-info">
+                            <h3>Lewis Hamilton</h3>
+                            <div class="driver-stats">
+                                <span class="wins">105 Wins</span>
+                                <span class="rate">26.9% Win Rate</span>
+                            </div>
+                            <div class="goat-score">92.5</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="podium-item third">
+                    <div class="podium-rank">3</div>
+                    <div class="podium-driver">
+                        <div class="driver-avatar">
+                            <img src="https://www.f1-fansite.com/wp-content/uploads/2026/03/Max-Verstappen-2026-png.webp" class="driver-img" alt="Max Verstappen">
+                        </div>
+                        <div class="driver-info">
+                            <h3>Max Verstappen</h3>
+                            <div class="driver-stats">
+                                <span class="wins">71 Wins</span>
+                                <span class="rate">18.7% Win Rate</span>
+                            </div>
+                            <div class="goat-score">76.2</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="goat-list">
+                <h3>Top 10 GOAT Contenders</h3>
+                <div class="goat-table">
+                    <div class="goat-row header">
+                        <span>Rank</span>
+                        <span>Driver</span>
+                        <span>Wins</span>
+                        <span>GOAT Score</span>
+                    </div>
+                    <div class="goat-row">
+                        <span class="rank">4</span>
+                        <span class="name">Sebastian Vettel</span>
+                        <span class="wins">53</span>
+                        <span class="score">71.8</span>
+                    </div>
+                    <div class="goat-row">
+                        <span class="rank">5</span>
+                        <span class="name">Alain Prost</span>
+                        <span class="wins">51</span>
+                        <span class="score">68.4</span>
+                    </div>
+                    <div class="goat-row">
+                        <span class="rank">6</span>
+                        <span class="name">Ayrton Senna</span>
+                        <span class="wins">41</span>
+                        <span class="score">65.9</span>
+                    </div>
+                    <div class="goat-row">
+                        <span class="rank">7</span>
+                        <span class="name">Fernando Alonso</span>
+                        <span class="wins">32</span>
+                        <span class="score">62.1</span>
+                    </div>
+                    <div class="goat-row">
+                        <span class="rank">8</span>
+                        <span class="name">Nigel Mansell</span>
+                        <span class="wins">31</span>
+                        <span class="score">58.7</span>
+                    </div>
+                    <div class="goat-row">
+                        <span class="rank">9</span>
+                        <span class="name">Jackie Stewart</span>
+                        <span class="wins">27</span>
+                        <span class="score">55.3</span>
+                    </div>
+                    <div class="goat-row">
+                        <span class="rank">10</span>
+                        <span class="name">Niki Lauda</span>
+                        <span class="wins">25</span>
+                        <span class="score">52.8</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eras Section -->
+    <section id="eras" class="eras-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">EVOLUTION OF F1</span>
+                <h2 class="section-title">Racing Through the Eras</h2>
+                <p class="section-desc">How Formula 1 has evolved from 1950 to today</p>
+            </div>
+            <div class="eras-timeline">
+                <div class="era-card">
+                    <div class="era-year">1950-1959</div>
+                    <div class="era-content">
+                        <h3>Pioneer Era</h3>
+                        <div class="era-icon"><i class="fas fa-history"></i></div>
+                        <p>The birth of F1 with front-engine cars and minimal safety</p>
+                        <div class="era-legend">
+                            <span class="legend-name">Legend: Juan Manuel Fangio</span>
+                            <span class="legend-achieve">5 Championships</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="era-card">
+                    <div class="era-year">1960-1969</div>
+                    <div class="era-content">
+                        <h3>Golden Era</h3>
+                        <div class="era-icon"><i class="fas fa-medal"></i></div>
+                        <p>Rear-engine revolution and British dominance begins</p>
+                        <div class="era-legend">
+                            <span class="legend-name">Legend: Jim Clark</span>
+                            <span class="legend-achieve">2 Championships</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="era-card">
+                    <div class="era-year">1970-1989</div>
+                    <div class="era-content">
+                        <h3>Turbo Era</h3>
+                        <div class="era-icon"><i class="fas fa-bolt"></i></div>
+                        <p>Ground effect, turbo power, and incredible rivalries</p>
+                        <div class="era-legend">
+                            <span class="legend-name">Legend: Ayrton Senna</span>
+                            <span class="legend-achieve">3 Championships</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="era-card">
+                    <div class="era-year">1990-1999</div>
+                    <div class="era-content">
+                        <h3>V10 Era</h3>
+                        <div class="era-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <p>Electronic aids era and Schumacher's rise</p>
+                        <div class="era-legend">
+                            <span class="legend-name">Legend: Michael Schumacher</span>
+                            <span class="legend-achieve">First 2 Titles</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="era-card">
+                    <div class="era-year">2000-2009</div>
+                    <div class="era-content">
+                        <h3>V10/V8 Era</h3>
+                        <div class="era-icon"><i class="fas fa-fire"></i></div>
+                        <p>Ferrari dominance and the Schumacher era peaks</p>
+                        <div class="era-legend">
+                            <span class="legend-name">Legend: Michael Schumacher</span>
+                            <span class="legend-achieve">5 Consecutive</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="era-card">
+                    <div class="era-year">2010-2013</div>
+                    <div class="era-content">
+                        <h3>V8 Era</h3>
+                        <div class="era-icon"><i class="fas fa-rocket"></i></div>
+                        <p>Red Bull and Vettel's young dominance</p>
+                        <div class="era-legend">
+                            <span class="legend-name">Legend: Sebastian Vettel</span>
+                            <span class="legend-achieve">4 Championships</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="era-card">
+                    <div class="era-year">2014-2021</div>
+                    <div class="era-content">
+                        <h3>Hybrid Era</h3>
+                        <div class="era-icon"><i class="fas fa-battery-full"></i></div>
+                        <p>Mercedes dominance and Hamilton's records</p>
+                        <div class="era-legend">
+                            <span class="legend-name">Legend: Lewis Hamilton</span>
+                            <span class="legend-achieve">6 Championships</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="era-card">
+                    <div class="era-year">2022-2025</div>
+                    <div class="era-content">
+                        <h3>Ground Effect Era</h3>
+                        <div class="era-icon"><i class="fas fa-wind"></i></div>
+                        <p>New regulations, closer racing, Verstappen dominance</p>
+                        <div class="era-legend">
+                            <span class="legend-name">Legend: Max Verstappen</span>
+                            <span class="legend-achieve">Back-to-Back</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="era-card active">
+                    <div class="era-year">2026+</div>
+                    <div class="era-content">
+                        <h3>Active Aero Era</h3>
+                        <div class="era-icon"><i class="fas fa-plane"></i></div>
+                        <p>Revolutionary active aerodynamics, 50/50 power split, sustainable fuels</p>
+                        <div class="era-legend">
+                            <span class="legend-name">New Power Units</span>
+                            <span class="legend-achieve">Active Front & Rear Wings</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fan Recommendations Section -->
+    <section id="recommendations" class="recommendations-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">FOR THE FANS</span>
+                <h2 class="section-title">Must-Watch Historical Races</h2>
+                <p class="section-desc">Top 5 races every F1 fan should experience</p>
+            </div>
+            <div class="recommendations-grid">
+                <div class="race-card featured">
+                    <div class="race-number">01</div>
+                    <div class="race-content">
+                        <span class="race-year">1971</span>
+                        <h3>Italian Grand Prix</h3>
+                        <p class="race-desc">Closest finish in F1 history - Peter Gethin won by 0.01s in a legendary slipstreaming battle at Monza.</p>
+                        <div class="race-highlight">
+                            <i class="fas fa-info-circle"></i>
+                            <span>5 cars crossed within 0.6 seconds</span>
+                        </div>
+                        <a class="yt-watch-btn" href="https://www.youtube.com/results?search_query=1971+Italian+Grand+Prix+Monza+Peter+Gethin" target="_blank" rel="noopener">
+                            <i class="fab fa-youtube"></i>
+                            Watch on YouTube
+                        </a>
+                    </div>
+                </div>
+                <div class="race-card">
+                    <div class="race-number">02</div>
+                    <div class="race-content">
+                        <span class="race-year">1984</span>
+                        <h3>Monaco Grand Prix</h3>
+                        <p class="race-desc">Senna's first win - dominated in torrential rain, announcing the arrival of a future legend.</p>
+                        <div class="race-highlight">
+                            <i class="fas fa-star"></i>
+                            <span>Senna's breakthrough victory</span>
+                        </div>
+                        <a class="yt-watch-btn" href="https://www.youtube.com/results?search_query=1984+Monaco+Grand+Prix+Senna+rain" target="_blank" rel="noopener">
+                            <i class="fab fa-youtube"></i>
+                            Watch on YouTube
+                        </a>
+                    </div>
+                </div>
+                <div class="race-card">
+                    <div class="race-number">03</div>
+                    <div class="race-content">
+                        <span class="race-year">2008</span>
+                        <h3>Brazilian Grand Prix</h3>
+                        <p class="race-desc">Hamilton's first championship on the final corner of the final lap - the most dramatic conclusion ever.</p>
+                        <div class="race-highlight">
+                            <i class="fas fa-trophy"></i>
+                            <span>Championship decided in last corner</span>
+                        </div>
+                        <a class="yt-watch-btn" href="https://www.youtube.com/results?search_query=2008+Brazilian+Grand+Prix+Hamilton+championship+last+corner" target="_blank" rel="noopener">
+                            <i class="fab fa-youtube"></i>
+                            Watch on YouTube
+                        </a>
+                    </div>
+                </div>
+                <div class="race-card">
+                    <div class="race-number">04</div>
+                    <div class="race-content">
+                        <span class="race-year">2012</span>
+                        <h3>Brazilian Grand Prix</h3>
+                        <p class="race-desc">Vettel's incredible comeback from last to 6th to win the championship in wet conditions.</p>
+                        <div class="race-highlight">
+                            <i class="fas fa-fire"></i>
+                            <span>Survived first-lap collision</span>
+                        </div>
+                        <a class="yt-watch-btn" href="https://www.youtube.com/results?search_query=2012+Brazilian+Grand+Prix+Vettel+championship+comeback" target="_blank" rel="noopener">
+                            <i class="fab fa-youtube"></i>
+                            Watch on YouTube
+                        </a>
+                    </div>
+                </div>
+                <div class="race-card">
+                    <div class="race-number">05</div>
+                    <div class="race-content">
+                        <span class="race-year">2021</span>
+                        <h3>Abu Dhabi Grand Prix</h3>
+                        <p class="race-desc">The ultimate showdown - Verstappen vs Hamilton with the championship decided on the final lap.</p>
+                        <div class="race-highlight">
+                            <i class="fas fa-crown"></i>
+                            <span>Greatest rivalry climax</span>
+                        </div>
+                        <a class="yt-watch-btn" href="https://www.youtube.com/results?search_query=2021+Abu+Dhabi+Grand+Prix+Verstappen+Hamilton+final+lap" target="_blank" rel="noopener">
+                            <i class="fab fa-youtube"></i>
+                            Watch on YouTube
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Best Seasons to Watch -->
+            <div class="seasons-section">
+                <h3 class="subsection-title">Best Seasons to Watch</h3>
+                <div class="seasons-grid">
+                    <div class="season-card">
+                        <div class="season-year">1976</div>
+                        <div class="season-content">
+                            <h4>Hunt vs Lauda</h4>
+                            <p>The Rush season - immortalized in film</p>
+                            <a class="yt-season-link" href="https://www.youtube.com/results?search_query=1976+F1+season+Hunt+Lauda+championship" target="_blank" rel="noopener">Watch <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="season-card">
+                        <div class="season-year">1988</div>
+                        <div class="season-content">
+                            <h4>Senna vs Prost</h4>
+                            <p>McLaren won 16 of 16 races</p>
+                            <a class="yt-season-link" href="https://www.youtube.com/results?search_query=1988+F1+season+Senna+Prost+McLaren+MP4%2F4" target="_blank" rel="noopener">Watch <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="season-card">
+                        <div class="season-year">2007</div>
+                        <div class="season-content">
+                            <h4>Rookie Hamilton</h4>
+                            <p>Hamilton vs Alonso vs Räikkönen</p>
+                            <a class="yt-season-link" href="https://www.youtube.com/results?search_query=2007+F1+season+Hamilton+Alonso+Raikkonen" target="_blank" rel="noopener">Watch <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="season-card">
+                        <div class="season-year">2010</div>
+                        <div class="season-content">
+                            <h4>4-Way Battle</h4>
+                            <p>Championship to final race</p>
+                            <a class="yt-season-link" href="https://www.youtube.com/results?search_query=2010+F1+season+finale+Abu+Dhabi+four+way+title" target="_blank" rel="noopener">Watch <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="season-card">
+                        <div class="season-year">2021</div>
+                        <div class="season-content">
+                            <h4>Greatest Rivalry</h4>
+                            <p>Verstappen vs Hamilton</p>
+                            <a class="yt-season-link" href="https://www.youtube.com/results?search_query=2021+F1+season+Verstappen+Hamilton+title+fight" target="_blank" rel="noopener">Watch <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Latest Races to Watch -->
+            <div class="seasons-section">
+                <h3 class="subsection-title">Latest Races to Watch</h3>
+                <div class="seasons-grid">
+                    <div class="season-card">
+                        <div class="season-year">2026</div>
+                        <div class="season-content">
+                            <h4>Bahrain GP</h4>
+                            <p>First race of the new Active Aero Era</p>
+                            <a class="yt-season-link" href="https://www.youtube.com/results?search_query=2026+Bahrain+Grand+Prix+highlights" target="_blank" rel="noopener">Watch <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="season-card">
+                        <div class="season-year">2026</div>
+                        <div class="season-content">
+                            <h4>Australian GP</h4>
+                            <p>Verstappen's masterclass in Melbourne</p>
+                            <a class="yt-season-link" href="https://www.youtube.com/results?search_query=2026+Australian+Grand+Prix+highlights" target="_blank" rel="noopener">Watch <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="season-card">
+                        <div class="season-year">2025</div>
+                        <div class="season-content">
+                            <h4>Abu Dhabi GP</h4>
+                            <p>The epic multi-team title decider</p>
+                            <a class="yt-season-link" href="https://www.youtube.com/results?search_query=2025+Abu+Dhabi+Grand+Prix+highlights" target="_blank" rel="noopener">Watch <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="season-card">
+                        <div class="season-year">2025</div>
+                        <div class="season-content">
+                            <h4>Italian GP</h4>
+                            <p>Hamilton's first Monza win in red</p>
+                            <a class="yt-season-link" href="https://www.youtube.com/results?search_query=2025+Italian+Grand+Prix+highlights" target="_blank" rel="noopener">Watch <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="season-card">
+                        <div class="season-year">2024</div>
+                        <div class="season-content">
+                            <h4>British GP</h4>
+                            <p>Hamilton's emotional home win</p>
+                            <a class="yt-season-link" href="https://www.youtube.com/results?search_query=2024+British+Grand+Prix+highlights" target="_blank" rel="noopener">Watch <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rising Stars -->
+            <div class="rising-stars">
+                <h3 class="subsection-title">Rising Stars to Watch</h3>
+                <div class="stars-grid">
+                    <div class="star-card">
+                        <div class="star-image">
+                            <img src="https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/mclaren/lannor01/2026mclarenlannor01right.webp" class="driver-img" alt="Lando Norris">
+                        </div>
+                        <div class="star-info">
+                            <span class="star-name">Lando Norris</span>
+                            <span class="star-team">McLaren</span>
+                        </div>
+                    </div>
+                    <div class="star-card">
+                        <div class="star-image">
+                            <img src="https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/mclaren/oscpia01/2026mclarenoscpia01right.webp" class="driver-img" alt="Oscar Piastri">
+                        </div>
+                        <div class="star-info">
+                            <span class="star-name">Oscar Piastri</span>
+                            <span class="star-team">McLaren</span>
+                        </div>
+                    </div>
+                    <div class="star-card">
+                        <div class="star-image">
+                            <img src="https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/mercedes/georus01/2026mercedesgeorus01right.webp" class="driver-img" alt="George Russell">
+                        </div>
+                        <div class="star-info">
+                            <span class="star-name">George Russell</span>
+                            <span class="star-team">Mercedes</span>
+                        </div>
+                    </div>
+                    <div class="star-card">
+                        <div class="star-image">
+                            <img src="https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/ferrari/chalec01/2026ferrarichalec01right.webp" class="driver-img" alt="Charles Leclerc">
+                        </div>
+                        <div class="star-info">
+                            <span class="star-name">Charles Leclerc</span>
+                            <span class="star-team">Ferrari</span>
+                        </div>
+                    </div>
+                    <div class="star-card">
+                        <div class="star-image">
+                            <img src="https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000001/common/f1/2026/racingbulls/lialaw01/2026racingbullslialaw01right.webp" class="driver-img" alt="Liam Lawson">
+                        </div>
+                        <div class="star-info">
+                            <span class="star-name">Liam Lawson</span>
+                            <span class="star-team">Racing Bulls</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="F1-logo.png" alt="F1 Logo" class="f1-logo-img-small">
+                        <span>F1 ANALYTICS</span>
+                    </div>
+                    <p>Exploring 77 years of Formula 1 excellence through data and insights.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#stats">Statistics</a></li>
+                        <li><a href="#goat">GOAT Analysis</a></li>
+                        <li><a href="#eras">Eras</a></li>
+                        <li><a href="#recommendations">Recommendations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-data">
+                    <h4>Data Source</h4>
+                    <p>F1 Historical Results Dataset</p>
+                    <p>77 Seasons (1950-2026)</p>
+                    <p>25,939 Race Entries</p>
+                </div>
+            </div>
+            <div class="footer-author">
+                <h4>About the Creator</h4>
+                <p>Created by Sitt Min Thar - Principal Data Scientist & Kaggle Expert</p>
+                <p>Additional contributions by a Software Engineering Student & F1 Enthusiast. As a passionate follower of Formula 1, aiming to deliver informative and insightful analytics that benefit both the technical community and the F1 fandom.</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 F1 Historical Analysis. Data-driven insights for racing fans.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hero Image Slider
+        const slides = document.querySelectorAll('.slide');
+        const indicators = document.querySelectorAll('.indicator');
+        const counterEl = document.getElementById('currentSlideNum');
+        const progressBar = document.getElementById('sliderProgress');
+        let currentSlide = 0;
+        let slideTimer;
+
+        function goToSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            indicators[currentSlide].classList.remove('active');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+            counterEl.textContent = String(currentSlide + 1).padStart(2, '0');
+            progressBar.style.transition = 'none';
+            progressBar.style.width = '0%';
+            requestAnimationFrame(() => {
+                progressBar.style.transition = 'width 6s linear';
+                progressBar.style.width = '100%';
+            });
+        }
+        function startAuto() { slideTimer = setInterval(() => goToSlide(currentSlide + 1), 6000); }
+        function resetAuto() { clearInterval(slideTimer); startAuto(); }
+
+        document.getElementById('prevSlide').addEventListener('click', () => { goToSlide(currentSlide - 1); resetAuto(); });
+        document.getElementById('nextSlide').addEventListener('click', () => { goToSlide(currentSlide + 1); resetAuto(); });
+        indicators.forEach(d => d.addEventListener('click', () => { goToSlide(parseInt(d.dataset.slide)); resetAuto(); }));
+
+        // Kick off progress bar on first slide
+        requestAnimationFrame(() => {
+            progressBar.style.transition = 'width 6s linear';
+            progressBar.style.width = '100%';
+        });
+        startAuto();
+
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.stat-card, .era-card, .race-card, .season-card, .star-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

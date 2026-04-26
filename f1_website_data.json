@@ -1,0 +1,151 @@
+{
+  "key_stats": {
+    "total_seasons": 77,
+    "total_races": 1152,
+    "total_drivers": 818,
+    "total_constructors": 205,
+    "most_wins_driver": {
+      "name": "Adrian Sutil",
+      "wins": 0
+    },
+    "top_5_drivers": [
+      {
+        "name": "Adrian Sutil",
+        "wins": 0,
+        "win_rate": 0.0
+      },
+      {
+        "name": "Adri\u00e1n Campos",
+        "wins": 0,
+        "win_rate": 0.0
+      },
+      {
+        "name": "Aguri Suzuki",
+        "wins": 0,
+        "win_rate": 0.0
+      },
+      {
+        "name": "Alain Prost",
+        "wins": 51,
+        "win_rate": 196.15
+      },
+      {
+        "name": "Alan Jones",
+        "wins": 12,
+        "win_rate": 48.0
+      }
+    ],
+    "most_successful_constructor": {
+      "name": "Ferrari",
+      "wins": 249
+    },
+    "goat_top_10": [
+      {
+        "name": "Alexander Albon",
+        "score": 3.13,
+        "wins": 0
+      },
+      {
+        "name": "Antonio Giovinazzi",
+        "score": 0.89,
+        "wins": 0
+      },
+      {
+        "name": "Carlos Sainz",
+        "score": 13.13,
+        "wins": 4
+      },
+      {
+        "name": "Charles Leclerc",
+        "score": 18.52,
+        "wins": 8
+      },
+      {
+        "name": "Daniel Ricciardo",
+        "score": 16.1,
+        "wins": 8
+      },
+      {
+        "name": "Daniil Kvyat",
+        "score": 2.7,
+        "wins": 0
+      },
+      {
+        "name": "Esteban Ocon",
+        "score": 5.54,
+        "wins": 1
+      },
+      {
+        "name": "Fernando Alonso",
+        "score": 46.78,
+        "wins": 32
+      },
+      {
+        "name": "George Russell",
+        "score": 11.35,
+        "wins": 6
+      },
+      {
+        "name": "Kevin Magnussen",
+        "score": 4.03,
+        "wins": 0
+      }
+    ]
+  },
+  "recommendations": {
+    "top_5_must_watch_races": [
+      {
+        "race": "1971 Italian Grand Prix",
+        "season": 1971,
+        "why": "Closest finish in F1 history - Peter Gethin won by 0.01s",
+        "significance": "Monza slipstreaming battle"
+      },
+      {
+        "race": "1984 Monaco Grand Prix",
+        "season": 1984,
+        "why": "Senna's first win - dominated in torrential rain",
+        "significance": "Announced the arrival of a future legend"
+      },
+      {
+        "race": "2008 Brazilian Grand Prix",
+        "season": 2008,
+        "why": "Hamilton's first championship on final corner",
+        "significance": "Most dramatic championship conclusion"
+      },
+      {
+        "race": "2012 Brazilian Grand Prix",
+        "season": 2012,
+        "why": "Vettel's comeback from last to 6th",
+        "significance": "Overcame first-lap collision in wet"
+      },
+      {
+        "race": "2021 Abu Dhabi Grand Prix",
+        "season": 2021,
+        "why": "Controversial finish decided championship",
+        "significance": "Verstappen vs Hamilton showdown"
+      }
+    ],
+    "best_seasons_to_watch": [
+      {
+        "season": 1976,
+        "reason": "Hunt vs Lauda - The Rush season"
+      },
+      {
+        "season": 1988,
+        "reason": "Senna vs Prost at McLaren"
+      },
+      {
+        "season": 2007,
+        "reason": "Rookie Hamilton vs Alonso vs R\u00e4ikk\u00f6nen"
+      },
+      {
+        "season": 2010,
+        "reason": "4-way championship battle"
+      },
+      {
+        "season": 2021,
+        "reason": "Verstappen vs Hamilton - Greatest rivalry"
+      }
+    ]
+  }
+}
