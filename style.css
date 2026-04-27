@@ -1810,6 +1810,223 @@ ul {
 }
 
 /* ============================================
+   EDITORIAL NEWS LAYOUT — Must-Watch Races
+   ============================================ */
+
+/* Editorial section header */
+.ed-section-header {
+    margin-bottom: 3rem;
+    max-width: 100%;
+}
+.ed-header-kicker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.ed-issue-label {
+    font-family: var(--font-display);
+    font-size: 0.68rem;
+    letter-spacing: 2.5px;
+    color: rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+}
+.ed-main-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: 1px;
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+}
+.ed-main-title em {
+    display: block;
+    font-family: var(--font-body);
+    font-style: normal;
+    font-weight: 300;
+    color: var(--f1-red);
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 4px;
+    margin-top: 0.5rem;
+}
+.ed-section-header .section-desc {
+    max-width: 620px;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 1.05rem;
+}
+.ed-header-rule {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin-top: 2.5rem;
+}
+
+/* 5-column editorial race grid */
+.editorial-races-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    margin-bottom: 5rem;
+    position: relative;
+    background: rgba(255, 255, 255, 0.01);
+}
+.editorial-races-grid::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--f1-red);
+    z-index: 2;
+}
+
+.ed-race-card {
+    border-right: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 2.75rem 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+.ed-race-card:last-child { border-right: none; }
+.ed-race-card:hover { background: rgba(255, 255, 255, 0.025); }
+.ed-race-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--f1-red);
+    transition: width 0.4s ease;
+}
+.ed-race-card:hover::after { width: 100%; }
+
+/* Ghost rank number */
+.ed-race-num {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 4.5rem;
+    line-height: 0.85;
+    color: rgba(255, 255, 255, 0.05);
+    letter-spacing: -3px;
+    margin-bottom: 0.5rem;
+    user-select: none;
+    transition: color 0.35s ease;
+}
+.ed-race-card:hover .ed-race-num {
+    color: rgba(225, 6, 0, 0.18);
+}
+
+/* Category kicker */
+.ed-race-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: var(--font-display);
+    font-size: 0.6rem;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.ed-race-category i {
+    color: var(--f1-red);
+    font-size: 0.7rem;
+}
+
+/* Year stamp */
+.ed-race-year {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 0.95rem;
+    color: var(--f1-red);
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+/* Race headline — Orbitron block caps, the editorial signature */
+.ed-race-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.15rem;
+    line-height: 1.25;
+    color: var(--f1-white);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Body copy */
+.ed-race-desc {
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+}
+
+/* Fact / pull-quote box */
+.ed-race-fact {
+    border-left: 2px solid var(--f1-red);
+    padding: 0.55rem 0.85rem;
+    background: rgba(225, 6, 0, 0.05);
+    margin-bottom: 1.5rem;
+}
+.ed-race-fact span {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.3px;
+}
+
+/* Override yt-watch-btn sizing inside editorial cards */
+.editorial-races-grid .yt-watch-btn {
+    margin-top: auto;
+    align-self: flex-start;
+    font-size: 0.62rem;
+    padding: 0.5rem 0.85rem;
+    letter-spacing: 1.4px;
+}
+
+/* Editorial responsive — collapses to 2-col then 1-col */
+@media (max-width: 1200px) {
+    .editorial-races-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .ed-race-card {
+        border-right: 1px solid rgba(255, 255, 255, 0.07);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .ed-race-card:nth-child(2n) { border-right: none; }
+    .ed-race-card:nth-last-child(-n+1) { border-bottom: none; }
+}
+@media (max-width: 640px) {
+    .editorial-races-grid {
+        grid-template-columns: 1fr;
+    }
+    .ed-race-card {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .ed-race-card:last-child { border-bottom: none; }
+    .ed-header-kicker {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+/* ============================================
    ANIMATION CLASSES
    ============================================ */
 .animate-in {
